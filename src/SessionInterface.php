@@ -43,7 +43,7 @@ interface SessionInterface {
 	 * Effectively, returns $_SESSION[$index] or $default
 	 *
 	 * @param string $index
-	 * @param mixed $default
+	 * @param mixed  $default
 	 *
 	 * @return mixed
 	 */
@@ -62,7 +62,7 @@ interface SessionInterface {
 	 * Effectively, $_SESSION[$index] = $value
 	 *
 	 * @param string $index
-	 * @param mixed $value
+	 * @param mixed  $value
 	 *
 	 * @return void
 	 */
@@ -76,4 +76,11 @@ interface SessionInterface {
 	 * @return void
 	 */
 	public function remove(string $index): void;
+	
+	/**
+	 * Returns the session information managed herein
+	 *
+	 * @return array
+	 */
+	public function getSession(): array;
 }

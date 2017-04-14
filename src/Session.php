@@ -49,6 +49,15 @@ class Session implements SessionInterface {
 	}
 	
 	/**
+	 * @param string $index
+	 *
+	 * @return bool
+	 */
+	public function exists(string $index): bool {
+		return isset($_SESSION[$this->index][$index]);
+	}
+	
+	/**
 	 * @param string $username
 	 * @param array  $parameters
 	 */
@@ -67,12 +76,11 @@ class Session implements SessionInterface {
 	}
 	
 	/**
-	 * Destroys a session.
-	 *
-	 * @return void
+	 * @param string $index
+	 * @param        $value
 	 */
-	public function logout() {
-		$_SESSION[$this->index] = [];
+	public function set(string $index, $value): void {
+		$_SESSION[$this->index][$index] = $value;
 	}
 	
 	/**
@@ -91,6 +99,15 @@ class Session implements SessionInterface {
 	}
 	
 	/**
+	 * Destroys a session.
+	 *
+	 * @return void
+	 */
+	public function logout() {
+		$_SESSION[$this->index] = [];
+	}
+	
+	/**
 	 * @param  string $index
 	 * @param string  $default
 	 *
@@ -102,26 +119,15 @@ class Session implements SessionInterface {
 	
 	/**
 	 * @param string $index
-	 *
-	 * @return bool
-	 */
-	public function exists(string $index): bool {
-		return isset($_SESSION[$this->index][$index]);
-	}
-	
-	/**
-	 * @param string $index
-	 * @param        $value
-	 */
-	public function set(string $index, $value): void {
-		$_SESSION[$this->index][$index] = $value;
-	}
-	
-	/**
-	 * @param string $index
 	 */
 	public function remove(string $index): void {
 		unset($_SESSION[$this->index][$index]);
 	}
 	
+	/**
+	 * @return array
+	 */
+	public function getSession(): array {
+		return $_SESSION[$this->index];
+	}
 }
