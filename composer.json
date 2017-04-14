@@ -14,6 +14,9 @@
 			"role": "developer"
 		}
 	],
+	"require": {
+		"php": "^7.1"
+	},
 	"autoload": {
 		"psr-4": {
 			"Dashifen\\Session\\": "src/"
