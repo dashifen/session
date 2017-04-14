@@ -2,10 +2,16 @@
 	"name": "dashifen/session",
 	"description": "a PHP session handling object",
 	"minimum-stability": "stable",
+	"type": "library",
+	"keywords": [
+		"session"
+	],
 	"authors": [
 		{
 			"name": "David Dashifen Kees",
-			"email": "dashifen@dashifen.com"
+			"email": "dashifen@dashifen.com",
+			"homepage": "https://dashifen.com",
+			"role": "developer"
 		}
 	],
 	"autoload": {
