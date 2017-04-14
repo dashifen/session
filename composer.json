@@ -1,0 +1,17 @@
+{
+	"name": "dashifen/session",
+	"description": "a PHP session handling object",
+	"minimum-stability": "stable",
+	"authors": [
+		{
+			"name": "David Dashifen Kees",
+			"email": "dashifen@dashifen.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Dashifen\\Session\\": "src/"
+		}
+	},
+	"license": "MIT"
+}
