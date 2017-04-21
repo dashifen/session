@@ -22,7 +22,7 @@ class Session implements SessionInterface {
 	 * @throws SessionException
 	 */
 	public function __construct(string $index = "") {
-		$this->index = empty($index) ? uniqid() : $index;
+		$this->index = empty($index) ? $this->getIndex() : $index;
 		
 		// if we haven't started the session already, we'll make sure we do so
 		// now.  if we can't start it, we toss an exception and how the rest of
@@ -39,6 +39,17 @@ class Session implements SessionInterface {
 		// sent or generated above.
 		
 		$_SESSION[$this->index] = [];
+	}
+	
+	protected function getIndex() {
+		
+		// if we're reconnecting to a visitor's session, then the index is
+		// actually stored in the session for us to find.  if this is the
+		// first time we've created a session for this visitor, we'll create
+		// one.  our interface defines the index at which we find our index,
+		// the index-index if you will.
+		
+		return $_SESSION[SessionInterface::indexIndex] ?? uniqid();
 	}
 	
 	/**
