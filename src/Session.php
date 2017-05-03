@@ -36,9 +36,13 @@ class Session implements SessionInterface {
 		
 		// to help avoid colliding with other session information, we're going to
 		// put everything we manage into an array identified by the index we were
-		// sent or generated above.
+		// sent or generated above.  but, since we might be reconnecting to a
+		// session already in progress, we'll only want to create that array if
+		// it's not already present.
 		
-		$_SESSION[$this->index] = [];
+		if (!isset($_SESSION[$this->index]) || !is_array($_SESSION[$this->index])) {
+			$_SESSION[$this->index] = [];
+		}
 	}
 	
 	protected function getIndex() {
