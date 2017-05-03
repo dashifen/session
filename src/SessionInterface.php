@@ -8,7 +8,7 @@ namespace Dashifen\Session;
  * @package Dashifen\Session
  */
 interface SessionInterface {
-	public const indexIndex = 'Dashifen\Session\Session:index';
+	public const defaultIndex = 'Dashifen\Session\Session::index';
 	
 	/**
 	 * Returns true if the session has recorded the logging in of an authenticated visitor

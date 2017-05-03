@@ -21,7 +21,7 @@ class Session implements SessionInterface {
 	 *
 	 * @throws SessionException
 	 */
-	public function __construct(string $index = "") {
+	public function __construct(string $index = SessionInterface::defaultIndex) {
 		$this->index = empty($index) ? $this->getIndex() : $index;
 		
 		// if we haven't started the session already, we'll make sure we do so
@@ -49,7 +49,7 @@ class Session implements SessionInterface {
 		// one.  our interface defines the index at which we find our index,
 		// the index-index if you will.
 		
-		return $_SESSION[SessionInterface::indexIndex] ?? uniqid();
+		return $_SESSION[SessionInterface::defaultIndex] ?? uniqid();
 	}
 	
 	/**
