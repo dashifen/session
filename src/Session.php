@@ -30,7 +30,8 @@ class Session implements SessionInterface {
 		
 		if (session_id() === "") {
 			if (!session_start()) {
-				throw new SessionException("Unable to start session");
+				throw new SessionException("Unable to start session",
+					SessionException::CANNOT_START);
 			}
 		}
 		

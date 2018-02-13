@@ -2,4 +2,8 @@
 
 namespace Dashifen\Session;
 
-class SessionException extends \Exception { }
+use Dashifen\Exception\Exception;
+
+class SessionException extends Exception {
+	public const CANNOT_START = 1;
+}
