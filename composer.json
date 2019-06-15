@@ -15,8 +15,8 @@
 		}
 	],
 	"require": {
-		"php": "^7.1",
-		"dashifen/exception": "^1"
+		"php": "7.3.*",
+		"dashifen/exception": "1.1.*"
 	},
 	"autoload": {
 		"psr-4": {
