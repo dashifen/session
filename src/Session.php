@@ -66,6 +66,19 @@ class Session implements SessionInterface
   }
   
   /**
+   * Returns the authenticated username or null.
+   *
+   * @return string|null
+   */
+  public function getUsername(): ?string
+  {
+    return $this->isAuthenticated()
+      ? $this->get(SessionInterface::USERNAME, null)
+      : null;
+  }
+  
+  
+  /**
    * Returns true if the specified index exists within our session.
    *
    * @param string $index

@@ -21,6 +21,13 @@ interface SessionInterface
   public function isAuthenticated(): bool;
   
   /**
+   * Returns the authenticated username or null.
+   *
+   * @return string|null
+   */
+  public function getUsername(): ?string;
+  
+  /**
    * Records the logging in of an authenticated visitor.
    *
    * @param string $username
